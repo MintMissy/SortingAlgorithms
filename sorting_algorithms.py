@@ -14,9 +14,25 @@ def test_algorithm(sorting_algorithm, array):
     # Initialize variable storing starting time of sorting
     start = time.time()
     sorting_algorithm(array)
-
     # Calculate sorting time then return it
     return time.time() - start
+
+
+def bubble_sort(array):
+    """
+    This function sorts array with bubble sort
+
+    :param array: Array to sort
+    :type array: list
+    :return: Sorted array
+    """
+    # Variable that is used to optimize algorithm
+    for i in range(len(array)):
+        for j in range(len(array) - 1):
+            # Swap elements in array
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+    return array
 
 
 def optimized_bubble_sort(array):
@@ -38,23 +54,6 @@ def optimized_bubble_sort(array):
 
         if not swapped:
             break
-    return array
-
-
-def bubble_sort(array):
-    """
-    This function sorts array with bubble sort
-
-    :param array: Array to sort
-    :type array: list
-    :return: Sorted array
-    """
-    # Variable that is used to optimize algorithm
-    for i in range(len(array)):
-        for j in range(len(array) - 1):
-            # Swap elements in array
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
     return array
 
 

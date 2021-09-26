@@ -58,7 +58,7 @@ def draw_efficiency_graph(*data):
 
 
 # This list store amount of numbers to generate in array
-numbers = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000]
+numbers = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
 min_generated_number = -100
 max_generated_number = 100
 

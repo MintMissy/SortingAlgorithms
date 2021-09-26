@@ -15,5 +15,5 @@ def random_int_array(min_number, max_number, length):
     """
     array = []
     while len(array) < length:
-        array.append(random.randint(-min_number, max_number))
+        array.append(random.randint(min_number, max_number))
     return array
