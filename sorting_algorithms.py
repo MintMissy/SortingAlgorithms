@@ -13,7 +13,8 @@ def test_algorithm(sorting_algorithm, array):
     """
     # Initialize variable storing starting time of sorting
     start = time.time()
-    sorting_algorithm(array)
+    array_copy = array.copy()
+    sorting_algorithm(array_copy)
     # Calculate sorting time then return it
     return time.time() - start
 
@@ -71,4 +72,22 @@ def selection_sort(array):
             if array[minimum] > array[j]:
                 minimum = j
         array[i], array[minimum] = array[minimum], array[i]
+    return array
+
+
+def insertion_sort(array):
+    """
+    This function sorts array with insertion sort
+
+    :param array: Array to sort
+    :type array: list
+    :return: Sorted array
+    """
+    for i in range(1, len(array)):
+        key = array[i]
+        j = i - 1
+        while j >= 0 and key < array[j]:
+            array[j+1] = array[j]
+            j -= 1
+        array[j+1] = key
     return array

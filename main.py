@@ -48,7 +48,7 @@ def draw_efficiency_graph(*data):
 
     # Loop through data passed in parameters to draw algorithm efficiency
     for information in data:
-        plt.plot(*zip(*information[0].items()), label=information[1], color=information[2])
+        plt.plot(*zip(*information[0].items()), label=information[1], color=information[2], marker='.')
 
     # Add legend with gray bg color, blue label text and 0% opacity
     plt.legend(facecolor='#4e5b6d', edgecolor='#4e5b6d', labelcolor='#5294f2', framealpha=1)
@@ -66,23 +66,26 @@ max_generated_number = 100
 results_bubble_sort = {}
 results_optimized_bubble_sort = {}
 results_selection_sort = {}
+results_insertion_sort = {}
 
 for number in numbers:
     # Create random int array to test sorting
     array_to_sort = random_int_array(min_generated_number, max_generated_number, number)
-
     # Calculate sorting time and save it to dictionary result
     results_bubble_sort[number] = test_algorithm(bubble_sort, array_to_sort)
     results_optimized_bubble_sort[number] = test_algorithm(optimized_bubble_sort, array_to_sort)
     results_selection_sort[number] = test_algorithm(selection_sort, array_to_sort)
+    results_insertion_sort[number] = test_algorithm(insertion_sort, array_to_sort)
     print(f"{number} passed!")
 
 # Save results to files
 save_results_to_file(results_bubble_sort, 'bubble_sorting_times')
 save_results_to_file(results_optimized_bubble_sort, 'optimized_bubble_sorting_times')
 save_results_to_file(results_selection_sort, 'selection_sorting_times')
+save_results_to_file(results_insertion_sort, 'insertion_sorting_times')
 
 draw_efficiency_graph(
     [results_bubble_sort, "Bubble Sort", '#5ce1d1'],
     [results_optimized_bubble_sort, "Optimized Bubble Sort", '#e1cf5c'],
-    [results_selection_sort, "Selection Sort", '#81e15c'])
+    [results_selection_sort, "Selection Sort", '#81e15c'],
+    [results_insertion_sort, "Insertion Sort", '#ff44aa'])
