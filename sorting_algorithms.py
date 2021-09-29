@@ -13,8 +13,7 @@ def test_algorithm(sorting_algorithm, array):
     """
     # Initialize variable storing starting time of sorting
     start = time.time()
-    array_copy = array.copy()
-    sorting_algorithm(array_copy)
+    sorting_algorithm(array.copy())
     # Calculate sorting time then return it
     return time.time() - start
 
